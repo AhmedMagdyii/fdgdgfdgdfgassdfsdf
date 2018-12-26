@@ -70,16 +70,21 @@ if (message.content.startsWith(adminprefix + 'st')) {
 
 client.on("message", message => {
   var prefix = "A";
-if (message.content === "*Ahelp") {
+if (message.content === "Ahelp") {
    message.channel.send('**تم ارسالك في الخاص** :mailbox_with_mail: ');
 const embed = new Discord.RichEmbed()
     .setDescription(`
    [❖═══════ اوامر اغاني═══════❖]
 ** Aplay ~ لتشغيل الاغنيه**
+
 ** Astop ~ لأيقاف الاغنيه**
+
 ** Askip ~ لتخطي الاغنيه**
+
 ** Avol <namber> ~ ل تعلية واخفاض صوت الاغنيه**
+
 ** Apause ~ لأيقاف الاغنيه موقتا**
+
 ** Aresume ~ لأستمرار الاغنيه**
 `)
  message.author.sendEmbed(embed)
