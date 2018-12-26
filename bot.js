@@ -9,7 +9,7 @@ const YouTube = require('simple-youtube-api');
 const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
 const queue = new Map();
 const UserBlocked = new Set();
-const prefix = '*'
+const prefix = 'A'
 
  client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -29,39 +29,58 @@ client.user.setStatus("online")
 });
 //كود تغير البلاينج او التويتش
 
-const adminprefix = "*";//تذكير نغير البرفكس
-const devs = ['427054141492297728','502761044796768256'];//zمهم نحط الايدي
-client.on('message', message => {
-  var argresult = message.content.split(` `).slice(1).join(' '); //حقوق GMZN Host
-    if (!devs.includes(message.author.id)) return;
-   
-if (message.content.startsWith(adminprefix + 'ply')) { //حقوق GMZN Host
-  client.user.setGame(argresult);
-    message.channel.sendMessage(`**${argresult} تم تغيير بلاينق البوت إلى **`) //حقوق GMZN Host
-} else
+const adminprefix = "A";
+const devs = ['525660958761156638', 'none'];
  
-if (message.content.startsWith(adminprefix + 'tw')) {
+
+client.on('message', message => {
+  var argresult = message.content.split(` `).slice(1).join(' ');
+    if (!devs.includes(message.author.id)) return;
+    
+if (message.content.startsWith(adminprefix + 'ply')) {
+  client.user.setGame(argresult);
+    message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
+} else 
+if (message.content.startsWith(adminprefix + 'wt')) {
+client.user.setActivity(argresult, {type:'WATCHING'});
+    message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
+} else 
+if (message.content.startsWith(adminprefix + 'ls')) {
+client.user.setActivity(argresult , {type:'LISTENING'});
+    message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
+} else     
+  if (message.content.startsWith(adminprefix + 'setname')) {
+client.user.setUsername(argresult).then
+    message.channel.sendMessage(`**${argresult}** : Done :>`)
+return message.reply("**You Can't Change Your Name ,Only After Two Hours :>**");
+} else
+  if (message.content.startsWith(adminprefix + 'setavatar')) {
+client.user.setAvatar(argresult);
+  message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
+      } else     
+if (message.content.startsWith(adminprefix + 'st')) {
   client.user.setGame(argresult, "https://www.twitch.tv/idk");
-    message.channel.sendMessage(`**تم تغيير تويتش البوت إلى  ${argresult}**`) //حقوق GMZN Host
+    message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
 }
+
 });
 
 //-------------------------------------------------------------نهاية السورس الاساسي--------------------------------------------------------------------------------------------------------------
  
 
 client.on("message", message => {
-  var prefix = "*";
-if (message.content === "*mhelp") {
+  var prefix = "A";
+if (message.content === "*Ahelp") {
    message.channel.send('**تم ارسالك في الخاص** :mailbox_with_mail: ');
 const embed = new Discord.RichEmbed()
     .setDescription(`
    [❖═══════ اوامر اغاني═══════❖]
-** *play ~ لتشغيل الاغنيه**
-** *stop ~ لأيقاف الاغنيه**
-** *skip ~ لتخطي الاغنيه**
-** *vol <namber> ~ ل تعلية واخفاض صوت الاغنيه**
-** *pause ~ لأيقاف الاغنيه موقتا**
-** *resume ~ لأستمرار الاغنيه**
+** Aplay ~ لتشغيل الاغنيه**
+** Astop ~ لأيقاف الاغنيه**
+** Askip ~ لتخطي الاغنيه**
+** Avol <namber> ~ ل تعلية واخفاض صوت الاغنيه**
+** Apause ~ لأيقاف الاغنيه موقتا**
+** Aresume ~ لأستمرار الاغنيه**
 `)
  message.author.sendEmbed(embed)
  
